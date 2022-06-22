@@ -1,4 +1,3 @@
-class Game  
 require_relative 'player'
 require_relative 'deck'
 require_relative 'terminal_interface'
@@ -105,6 +104,4 @@ class Game
     gameflow if @interface.ask_player_to_continue == 1
     @deck = Deck.new
   end
-end
-  
-end  
+end 
