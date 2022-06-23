@@ -1,5 +1,6 @@
 class Hand
   MAX_VALUE = 21
+  LIMIT_DEALER = 17
   ACE_EXCEEDS = 10
   VALUES = {
     '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5,
@@ -19,7 +20,7 @@ class Hand
 
   def verify_ace(points)
     count_ace.times do
-      points -= ACE_EXCEEDS if points > 21
+      points -= ACE_EXCEEDS if points > MAX_VALUE
     end
     points
   end

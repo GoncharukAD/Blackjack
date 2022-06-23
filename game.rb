@@ -12,7 +12,6 @@ class Game
     @deck = Deck.new
     @player = Player.new(@interface.ask_player_name)
     @dealer = Player.new
-    gameflow
   end
 
   def gameflow
@@ -26,6 +25,8 @@ class Game
     deal_the_bank(winner)
     what_next
   end
+
+  private
 
   def deal
     @player.hand = @deck.deal
@@ -49,7 +50,7 @@ class Game
   end
 
   def dealer_moves
-    hit(@dealer) if @dealer.hand.value < 17
+    hit(@dealer) if @dealer.hand.value < LIMIT_DEALER
   end
 
   def hit(player)
@@ -104,4 +105,4 @@ class Game
     gameflow if @interface.ask_player_to_continue == 1
     @deck = Deck.new
   end
-end 
+end
